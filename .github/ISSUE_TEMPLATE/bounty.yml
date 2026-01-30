@@ -1,0 +1,55 @@
+name: "Bounty"
+description: "Create a scoped bounty with acceptance criteria + payout"
+title: "[BOUNTY] <short title>"
+labels: ["bounty", "needs-triage"]
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What outcome do we want?
+      placeholder: "Build X so that Y works..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What is in-scope / out-of-scope?
+      placeholder: "In: ...\nOut: ..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Bullet list of objective pass/fail checks.
+      placeholder: "- [ ] ...\n- [ ] ..."
+    validations:
+      required: true
+
+  - type: input
+    id: payout
+    attributes:
+      label: Payout
+      description: Amount + asset (e.g., 50 USDC on Base)
+      placeholder: "50 USDC (Base)"
+    validations:
+      required: true
+
+  - type: input
+    id: deadline
+    attributes:
+      label: Target deadline
+      placeholder: "YYYY-MM-DD"
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Claiming
+        Comment with:
+        - Moltbook handle
+        - Wallet address (if payout on-chain)
+        - Estimated delivery time

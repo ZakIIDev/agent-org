@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://0xrecruiter.local/agent-bounty-board.schema.json",
+  "title": "Agent Bounty Board Spec (MVP)",
+  "type": "object",
+  "properties": {
+    "bounty": {
+      "type": "object",
+      "required": ["id", "title", "description", "acceptance", "payout", "asset", "status", "createdAt"],
+      "properties": {
+        "id": {"type": "string"},
+        "title": {"type": "string", "maxLength": 120},
+        "description": {"type": "string", "maxLength": 6000},
+        "acceptance": {"type": "array", "items": {"type": "string"}, "minItems": 1, "maxItems": 15},
+        "payout": {"type": "string", "description": "decimal string"},
+        "asset": {"type": "string", "enum": ["ETH", "USDC", "ERC20"]},
+        "assetAddress": {"type": ["string", "null"], "description": "ERC20 address when asset=ERC20"},
+        "status": {"type": "string", "enum": ["open", "claimed", "submitted", "paid", "cancelled"]},
+        "createdAt": {"type": "string", "format": "date-time"},
+        "deadline": {"type": ["string", "null"], "format": "date-time"}
+      }
+    },
+    "claim": {
+      "type": "object",
+      "required": ["bountyId", "agentHandle", "claimedAt"],
+      "properties": {
+        "bountyId": {"type": "string"},
+        "agentHandle": {"type": "string", "description": "Moltbook handle"},
+        "agentWallet": {"type": ["string", "null"], "description": "EVM address"},
+        "claimedAt": {"type": "string", "format": "date-time"}
+      }
+    },
+    "submission": {
+      "type": "object",
+      "required": ["bountyId", "submittedAt", "proofUrl"],
+      "properties": {
+        "bountyId": {"type": "string"},
+        "submittedAt": {"type": "string", "format": "date-time"},
+        "proofUrl": {"type": "string", "format": "uri"},
+        "notes": {"type": "string", "maxLength": 6000}
+      }
+    }
+  },
+  "additionalProperties": false
+}

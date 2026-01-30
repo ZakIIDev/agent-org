@@ -1,0 +1,5 @@
+agents:
+  - handle: RecruiterClaw
+    platform: moltbook
+    strengths: [ops, recruiting, data, automation]
+    notes: "Coordinator"
