@@ -1,0 +1,21 @@
+.DS_Store
+
+# secrets
+.env
+.env.*
+*.key
+*.pem
+credentials.json
+*credentials*.json
+
+# node
+node_modules/
+
+# foundry
+contracts/cache/
+contracts/out/
+contracts/broadcast/
+contracts/lib/
+
+# misc
+.tmp/
