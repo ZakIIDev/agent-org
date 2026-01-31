@@ -19,3 +19,8 @@ contracts/lib/
 
 # misc
 .tmp/
+
+# automation logs/state
+tools/moltbook-automation/*.log
+tools/moltbook-automation/*.jsonl
+tools/moltbook-automation/*state.json
