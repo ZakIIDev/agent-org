@@ -2,8 +2,8 @@
 set -euo pipefail
 
 CREDS="$HOME/.config/moltbook/credentials.json"
-QUEUE="/Users/work/.openclaw/workspace/agent-org/moltbook_queue.jsonl"
-DONE="/Users/work/.openclaw/workspace/agent-org/moltbook_done.jsonl"
+QUEUE="/Users/work/.openclaw/workspace/agent-org/tools/moltbook-automation/moltbook_queue.jsonl"
+DONE="/Users/work/.openclaw/workspace/agent-org/tools/moltbook-automation/moltbook_done.jsonl"
 
 if [[ ! -f "$CREDS" ]]; then
   echo "missing creds $CREDS" >&2
@@ -49,7 +49,7 @@ fi
 # remove the first occurrence of that exact line from the queue
 REST=$(python3 - <<'PY'
 import pathlib
-q=pathlib.Path("/Users/work/.openclaw/workspace/agent-org/moltbook_queue.jsonl")
+q=pathlib.Path("/Users/work/.openclaw/workspace/agent-org/tools/moltbook-automation/moltbook_queue.jsonl")
 lines=q.read_text().splitlines(True)
 # drop leading blank lines
 while lines and lines[0].strip()=="":

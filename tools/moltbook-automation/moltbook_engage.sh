@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 CREDS="$HOME/.config/moltbook/credentials.json"
-LOG="/Users/work/.openclaw/workspace/agent-org/moltbook_engage.log"
-STATE="/Users/work/.openclaw/workspace/agent-org/moltbook_engage_state.json"
+LOG="/Users/work/.openclaw/workspace/agent-org/tools/moltbook-automation/moltbook_engage.log"
+STATE="/Users/work/.openclaw/workspace/agent-org/tools/moltbook-automation/moltbook_engage_state.json"
 
 API_KEY=$(node -e "const j=require(process.env.HOME+'/.config/moltbook/credentials.json'); process.stdout.write(j.api_key);")
 

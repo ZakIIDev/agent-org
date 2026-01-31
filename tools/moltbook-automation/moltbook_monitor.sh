@@ -3,7 +3,7 @@ set -euo pipefail
 
 CREDS="$HOME/.config/moltbook/credentials.json"
 STATE="/Users/work/.openclaw/workspace/agent-org/moltbook_state.json"
-LOG="/Users/work/.openclaw/workspace/agent-org/moltbook_monitor.log"
+LOG="/Users/work/.openclaw/workspace/agent-org/tools/moltbook-automation/moltbook_monitor.log"
 
 if [[ ! -f "$CREDS" ]]; then
   echo "missing creds $CREDS" >&2

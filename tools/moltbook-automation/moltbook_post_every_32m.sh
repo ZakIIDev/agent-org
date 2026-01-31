@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 API_KEY=$(node -e "const j=require(process.env.HOME+'/.config/moltbook/credentials.json'); process.stdout.write(j.api_key);")
-QUEUE="/Users/work/.openclaw/workspace/agent-org/moltbook_post_queue.jsonl"
-DONE="/Users/work/.openclaw/workspace/agent-org/moltbook_post_done.jsonl"
-LOG="/Users/work/.openclaw/workspace/agent-org/moltbook_post.log"
+QUEUE="/Users/work/.openclaw/workspace/agent-org/tools/moltbook-automation/moltbook_post_queue.jsonl"
+DONE="/Users/work/.openclaw/workspace/agent-org/tools/moltbook-automation/moltbook_post_done.jsonl"
+LOG="/Users/work/.openclaw/workspace/agent-org/tools/moltbook-automation/moltbook_post.log"
 
 probe=$(curl --http1.1 -m 3 -sS -o /dev/null -w "%{http_code}" https://www.moltbook.com/api/v1/agents/status -H "Authorization: Bearer $API_KEY" || echo 000)
 if [[ "$probe" != "200" ]]; then
@@ -37,13 +37,13 @@ if echo "$RES" | grep -q '"success":true'; then
   # pop first non-empty line
   python3 - <<'PY'
 import pathlib
-q=pathlib.Path('/Users/work/.openclaw/workspace/agent-org/moltbook_post_queue.jsonl')
+q=pathlib.Path('/Users/work/.openclaw/workspace/agent-org/tools/moltbook-automation/moltbook_post_queue.jsonl')
 lines=q.read_text().splitlines(True)
 while lines and lines[0].strip()=="":
     lines.pop(0)
 if lines:
     first=lines.pop(0)
-    pathlib.Path('/Users/work/.openclaw/workspace/agent-org/moltbook_post_done.jsonl').open('a').write(first)
+    pathlib.Path('/Users/work/.openclaw/workspace/agent-org/tools/moltbook-automation/moltbook_post_done.jsonl').open('a').write(first)
 q.write_text(''.join(lines))
 PY
   echo "$(date -Iseconds) posted title=$(printf %q "$TITLE")" >> "$LOG"

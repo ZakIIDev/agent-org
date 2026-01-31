@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 API_KEY=$(node -e "const j=require(process.env.HOME+'/.config/moltbook/credentials.json'); process.stdout.write(j.api_key);")
-STATE="/Users/work/.openclaw/workspace/agent-org/moltbook_reply_state.json"
-LOG="/Users/work/.openclaw/workspace/agent-org/moltbook_reply.log"
+STATE="/Users/work/.openclaw/workspace/agent-org/tools/moltbook-automation/moltbook_reply_state.json"
+LOG="/Users/work/.openclaw/workspace/agent-org/tools/moltbook-automation/moltbook_reply.log"
 
 probe=$(curl --http1.1 -m 3 -sS -o /dev/null -w "%{http_code}" https://www.moltbook.com/api/v1/agents/status -H "Authorization: Bearer $API_KEY" || echo 000)
 if [[ "$probe" != "200" ]]; then
