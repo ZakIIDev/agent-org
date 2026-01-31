@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1220"/>
+      <stop offset="55%" stop-color="#0f1b33"/>
+      <stop offset="100%" stop-color="#0b1220"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffe7a6"/>
+      <stop offset="100%" stop-color="#d6b36a"/>
+    </linearGradient>
+    <linearGradient id="outline" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.85"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+
+  <!-- 90s cartoon sticker: thick white border + bold black ink line -->
+  <g filter="url(#shadow)">
+    <!-- outer sticker silhouette -->
+    <path id="shape" d="M260 580
+             C 250 440, 350 330, 500 345
+             C 525 255, 640 235, 730 305
+             C 835 385, 875 520, 840 645
+             C 900 700, 895 800, 820 850
+             C 740 905, 610 900, 540 855
+             C 505 925, 410 945, 330 900
+             C 240 850, 245 720, 260 580 Z"/>
+
+    <use href="#shape" fill="url(#outline)"/>
+
+    <!-- inner ink stroke -->
+    <use href="#shape" fill="none" stroke="#05070f" stroke-width="18" stroke-linejoin="round"/>
+
+    <!-- inner body -->
+    <use href="#shape" transform="translate(10 10) scale(0.98)" fill="#0b152b" opacity="0.98"/>
+  </g>
+
+  <!-- ears (round, bouncy) -->
+  <path d="M430 300
+           C 405 255, 440 210, 490 235
+           C 535 258, 520 320, 470 345
+           C 450 355, 440 335, 430 300 Z"
+        fill="url(#gold)" stroke="#05070f" stroke-width="14" stroke-linejoin="round"/>
+
+  <path d="M545 305
+           C 535 245, 585 210, 640 248
+           C 690 282, 665 342, 605 362
+           C 580 370, 560 345, 545 305 Z"
+        fill="url(#gold)" stroke="#05070f" stroke-width="14" stroke-linejoin="round"/>
+
+  <!-- bunny face/body (puffy cloud) -->
+  <path d="M305 600
+           C 295 470, 395 390, 520 420
+           C 545 350, 635 330, 710 380
+           C 790 432, 810 520, 780 595
+           C 845 645, 850 725, 800 770
+           C 740 825, 640 820, 575 790
+           C 520 845, 430 850, 365 815
+           C 295 778, 285 695, 305 600 Z"
+        fill="#0b1220" stroke="#05070f" stroke-width="16" stroke-linejoin="round"/>
+
+  <!-- big 90s eye -->
+  <circle cx="675" cy="585" r="54" fill="#05070f"/>
+  <circle cx="675" cy="585" r="40" fill="#60a5fa"/>
+  <circle cx="660" cy="570" r="10" fill="#eaf0ff" opacity="0.95"/>
+  <circle cx="690" cy="610" r="6" fill="#93c5fd" opacity="0.65"/>
+
+  <!-- smile -->
+  <path d="M410 705 C 470 760, 555 775, 625 750" fill="none" stroke="#93c5fd" stroke-width="16" stroke-linecap="round"/>
+  <path d="M410 705 C 470 760, 555 775, 625 750" fill="none" stroke="#05070f" stroke-width="6" stroke-linecap="round" opacity="0.25"/>
+
+  <!-- blush dots -->
+  <circle cx="430" cy="640" r="10" fill="#d6b36a" opacity="0.65"/>
+  <circle cx="585" cy="690" r="8" fill="#d6b36a" opacity="0.55"/>
+
+  <!-- dust freckles -->
+  <circle cx="460" cy="720" r="7" fill="#d6b36a" opacity="0.9"/>
+  <circle cx="520" cy="770" r="6" fill="#d6b36a" opacity="0.85"/>
+  <circle cx="610" cy="785" r="6" fill="#d6b36a" opacity="0.8"/>
+
+  <!-- tiny motion sparkles -->
+  <circle cx="745" cy="520" r="6" fill="#93c5fd" opacity="0.8"/>
+  <circle cx="775" cy="560" r="4" fill="#93c5fd" opacity="0.7"/>
+</svg>
