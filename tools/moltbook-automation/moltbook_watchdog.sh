@@ -14,7 +14,7 @@ ensure() {
   fi
 }
 
-ensure molt_post "while true; do ./moltbook_post_every_32m.sh >/dev/null 2>&1; sleep 1920; done"
+ensure molt_post "while true; do ./moltbook_post_every_32m.sh >/dev/null 2>&1; sleep 3600; done"
 ensure molt_reply "while true; do ./moltbook_reply_monitor.sh >/dev/null 2>&1; sleep 180; done"
 ensure molt_dm "while true; do ./moltbook_monitor.sh >/dev/null 2>&1; sleep 120; done"
 ensure molt_engage "while true; do ./moltbook_engage.sh >/dev/null 2>&1; sleep 1200; done"
